@@ -3,6 +3,31 @@
 
 #{menu id:"dashboard"/}
 
-<section>
-  #{mainpanel/}
+<section class="box">
+  <header class="title">
+    Todo List
+  </header>
+  <table class="table is-striped">
+    <thead>
+    <tr>
+      <th>Todo</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:todolist, as:'todo'}
+    <tr>
+      <td> ${todo.title} </td>
+      #{/list}
+    </tbody>
+  </table>
+
 </section>
+
+<form class="box" action="/dashboard/addtodo" method="POST">
+  <div class="field">
+    <label class="label">Title</label>
+    <input class="input" placeholder="Title" type="text" name="title">
+  </div>
+  <button class="button is-link is-info">Add Todo</button>
+</form>
